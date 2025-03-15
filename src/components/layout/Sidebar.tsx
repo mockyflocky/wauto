@@ -29,6 +29,11 @@ export default function Sidebar({ className }: SidebarProps = {}) {
       icon: Home,
     },
     {
+      name: "WhatsApp",
+      href: "/dashboard/whatsapp",
+      icon: MessageSquare,
+    },
+    {
       name: "Message Templates",
       href: "/dashboard/templates",
       icon: MessageSquare,

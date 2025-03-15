@@ -21,8 +21,8 @@ const QuickActions = ({ actions }: QuickActionProps) => {
     },
     {
       icon: <MessageSquare className="h-5 w-5" />,
-      label: "Send Message",
-      onClick: () => console.log("Send message"),
+      label: "Connect WhatsApp",
+      onClick: () => (window.location.href = "/dashboard/whatsapp"),
     },
     {
       icon: <Calendar className="h-5 w-5" />,
