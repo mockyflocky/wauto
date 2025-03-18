@@ -8,6 +8,14 @@ WAUTO is a web-based application designed to automate WhatsApp messaging for adv
 - **ShadCN UI** - UI components for styling
 - **Docker** (Future development) - Deployment and containerization
 
+## 🔄 Future Updates
+- Docker support for easier deployment
+- Improved UI/UX enhancements
+- Additional automation features
+
+## 📌 Contributions
+Contributions are welcome! Feel free to fork the repository, make improvements, and submit a pull request.
+
 ## 🚀 Features
 - WhatsApp automation system using QR codes from WhatsApp Web
 - User-friendly interface for managing campaigns
@@ -33,15 +41,4 @@ npm install
 npm run dev
 ```
 This will start the application locally. You can access it in your browser at `http://localhost:3000`.
-
-## 🔄 Future Updates
-- Docker support for easier deployment
-- Improved UI/UX enhancements
-- Additional automation features
-
-## 📌 Contributions
-Contributions are welcome! Feel free to fork the repository, make improvements, and submit a pull request.
-
-## 📞 Contact
-For any questions or suggestions, please reach out to [your contact info].
 
