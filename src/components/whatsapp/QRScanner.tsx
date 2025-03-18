@@ -31,9 +31,14 @@ const QRScanner = ({ onQRScanned = () => {} }: QRScannerProps) => {
       // In a real implementation, this would call your backend API
       // to initiate a WhatsApp Web session and get a QR code
       setTimeout(() => {
-        // Simulating QR code data (in production, this would come from your backend)
+        // Instead of using a mock QR code, we're using the WhatsApp Web URL
+        // This would redirect users to WhatsApp Web when they click on it
+        const whatsappWebUrl = "https://web.whatsapp.com/";
+
+        // In a real implementation, you would generate a QR code from the WhatsApp Web URL
+        // For demo purposes, we're still using a mock QR code that represents WhatsApp Web
         const mockQRData =
-          "data:image/png;base64,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";
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKQAAACkCAYAAAAZtYVBAAAAAklEQVR4AewaftIAAAYqSURBVO3BQY4cSRLAQDLQ//8yV0c/JZCoain6zYjdYYnFQyxeYvEQi4dYPMTiIRYPsXiIxUMsHmLxEIuHWDzE4iEWD7F4iMVDLB5i8RCLD3xI5W+qOKkyVZxUmSpOKlPFpDJVTCo3VXxC5W+q+MTiIRYPsXiIxQc3VdykMlVMKlPFVHGTylQxqUwVk8pUcVLxCZWbKm5SuaniJhYPsXiIxUMsPvBLKjdV3KQyVUwVk8pJxaQyVUwqU8WkMlVMKicVN6ncVPFLKr9p8RCLh1g8xOIDf5jKVDGpTBWTylQxqUwVk8pUMalMFZPKVDGpTBV/mcVDLB5i8RCLD/xlKlPFpDJVnFRMKlPFpDJVTCpTxaTyL7N4iMVDLB5i8YFfUvmbKiaVqWJSmSpOKiaVqeJE5aaKSeWmil9S+ZsWD7F4iMVDLD5wk8rfVDGpTBUnKlPFpDJVTConFZPKVDGpTBWTylQxqZxUTCpTxYnK37R4iMVDLB5i8YEPVZyoTBWTylQxqUwVk8pUMalMFZPKVHGiMlVMKlPFicpUMalMFScqU8WkMlXcpDJVfGLxEIuHWDzE4gMfUpkqJpWpYlKZKk5UpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopPLB5i8RCLh1h84EMVk8pUMalMFZPKVDGpTBUnKlPFpDJVnKhMFZPKVDGpTBWTylQxqUwVk8pUMalMFZPKVDGpTBWTylTxicVDLB5i8RCLD3xIZaqYVKaKSWWqOFGZKiaVqWJSmSomlaniROWmipOKSeWk4kRlqphUpopJZaqYVKaKTyweYvEQi4dYfOCXVKaKSWWqmFSmihOVqWJSmSpOVKaKSeWk4iaVqWJSmSomlZsqJpWp4kRlqvjE4iEWD7F4iMUHPlRxojJVTCpTxaQyVUwqU8WkMlVMKlPFpDJVTCpTxaQyVUwqU8WkMlVMKlPFpDJVTCpTxaQyVUwqU8UnFg+xeIjFQyw+8CGVqWJSmSomlaliUpkqJpWpYlKZKiaVqWJSmSomlaliUpkqJpWp4kRlqphUpopJZaqYVKaKSWWqmFSmik8sHmLxEIuHWHzgQxWTylQxqUwVk8pUMalMFZPKVDGpTBWTylQxqUwVk8pUMalMFZPKVDGpTBWTylQxqUwVk8pUMalMFZ9YPMTiIRYPsfjAh1SmihOVqWJSmSomlaliUpkqJpWpYlKZKiaVqWJSmSomlaliUpkqJpWpYlKZKiaVqWJSmSomlaliUpkqPrF4iMVDLB5i8YFfqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWq+MTiIRYPsXiIxQc+pDJVTCpTxaQyVUwqU8WkMlVMKlPFpDJVTCpTxaQyVUwqU8WkMlVMKlPFpDJVTCpTxaQyVUwqU8WkMlV8YvEQi4dYPMTiAx+qmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZar4xOIhFg+xeIjFB35J5aaKSeWmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqvjE4iEWD7F4iMUHblK5qeJEZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKTyweYvEQi4dYfOCXVG6qOFGZKiaVqWJSmSomlaliUpkqJpWpYlKZKiaVqWJSmSomlaliUpkqJpWpYlKZKiaVqeITi4dYPMTiIRYf+JDK31QxqUwVk8pUMalMFZPKVDGpTBWTylQxqUwVk8pUMalMFZPKVDGpTBWTylTxNy0eYvEQi4dYfOCmiptUbqqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSeWmiptUbqq4afEQi4dYPMTiA7+kclPFTSpTxaQyVUwqU8WkMlVMKlPFpDJVTCpTxaQyVUwqU8WkMlVMKlPFpDJV/E2Lh1g8xOIhFh/4w1SmikllqphUpopJZaqYVKaKSWWqmFSmikllqphUpopJZaqYVKaKSWWqmFSmikllqvjE4iEWD7F4iMUH/jCVqWJSmSomlaliUpkqJpWpYlKZKiaVqWJSmSomlaliUpkqJpWpYlKZKiaVqeJvWjzE4iEWD7H4wC+p/E0Vk8pUMalMFZPKVDGpTBWTylQxqUwVk8pUMalMFZPKVDGpTBWTylQxqUwVf9PiIRYPsXiIxUMsHmLxEIuHWDzE4iEWD7F4iMVDLB5i8RCLh1g8xOIhFg+xeIjFQyz+D+qZKmJz7Q7pAAAAAElFTkSuQmCC";
         setQrCode(mockQRData);
         setStatus("idle");
       }, 1500);
@@ -112,6 +117,14 @@ const QRScanner = ({ onQRScanned = () => {} }: QRScannerProps) => {
             <p className="mt-2 text-xs text-muted-foreground">
               (Click QR to simulate connection)
             </p>
+            <a
+              href="https://web.whatsapp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 text-sm text-primary hover:underline"
+            >
+              Open WhatsApp Web
+            </a>
           </div>
         )}
       </CardContent>
